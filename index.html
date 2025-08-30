@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Veyro Medium — элитное рекламное агентство в Telegram</title>
+  <meta name="description" content="Veyro Medium — агентство, которое запускает рекламу в топовых Telegram-каналах. Размещение через нас: быстро, прозрачно, без посредников. Менеджер по рекламе: @veyromanager." />
+  <meta property="og:title" content="Veyro Medium — элитное рекламное агентство в Telegram" />
+  <meta property="og:description" content="Реклама в ТГК через нас. Партнёры: FenilNan, Аким Энантат и др. Менеджер: @veyromanager." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="preview.jpg" />
+  <meta name="theme-color" content="#0d0d0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0d0d0f;            /* глубокий тёмный фон */
+      --panel:#141417;          /* панели/карточки */
+      --muted:#9aa0a6;          /* вторичный текст */
+      --text:#f4f4f5;           /* основной текст */
+      --gold:#D4AF37;           /* акцент золото */
+      --gold-weak:#a48928;      /* вторичное золото */
+      --stroke:#222227;         /* линии/границы */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; color:var(--text); background:radial-gradient(1200px 800px at 85% -10%, rgba(212,175,55,0.12), transparent 60%), var(--bg);
+      letter-spacing:.2px;
+    }
+    .container{max-width:1180px; margin:0 auto; padding:0 20px}
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(8px);
+      background:linear-gradient(180deg, rgba(13,13,15,.85), rgba(13,13,15,.65)); border-bottom:1px solid var(--stroke);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; height:68px}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text)}
+    .brand-logo{width:34px; height:34px; border-radius:10px; background:linear-gradient(145deg, var(--gold), #f0d77a); display:grid; place-items:center; color:#111; font-weight:800}
+    .brand-title{font-weight:700; letter-spacing:.4px}
+    .menu{display:flex; gap:20px}
+    .menu a{color:var(--muted); text-decoration:none; font-weight:600; font-size:14px}
+    .menu a:hover{color:var(--text)}
+    .cta{display:flex; gap:12px}
+    .btn{appearance:none; border:1px solid var(--stroke); background:var(--panel); color:var(--text); padding:10px 14px; border-radius:12px; font-weight:600; text-decoration:none; transition:.2s ease; cursor:pointer}
+    .btn:hover{transform:translateY(-1px); border-color:#2b2b31}
+    .btn-gold{background:linear-gradient(135deg, var(--gold), #f0d77a); color:#161616; border:none}
+    .btn-gold:hover{filter:saturate(108%) brightness(1.02)}
+    /* Hero */
+    .hero{position:relative; padding:88px 0 56px; overflow:hidden; border-bottom:1px solid var(--stroke)}
+    .hero h1{font-size:44px; line-height:1.12; margin:0 0 14px; letter-spacing:.2px}
+    .hero p{color:var(--muted); margin:0 0 28px; font-size:17px}
+    .hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:32px; align-items:center}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
+      border:1px solid var(--stroke); border-radius:20px; padding:20px; box-shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    .mock{
+      aspect-ratio:16/9; border-radius:16px; border:1px solid var(--stroke); background:
+        linear-gradient(180deg, rgba(212,175,55,.1), transparent 35%),
+        url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1400&auto=format&fit=crop') center/cover;
+    }
+    /* Sections */
+    section{padding:72px 0}
+    h2{font-size:28px; margin:0 0 12px}
+    .lead{color:var(--muted); margin-bottom:22px}
+    .grid{display:grid; gap:18px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-4{grid-template-columns:repeat(4,1fr)}
+    .item{background:var(--panel); border:1px solid var(--stroke); border-radius:16px; padding:18px}
+    .item h3{margin:0 0 8px; font-size:18px}
+    .item p{margin:0; color:var(--muted); font-size:14px}
+    .item .mini{font-size:13px; color:var(--gold)}
+    .item a{color:var(--text)}
+    .tag{display:inline-block; padding:6px 10px; border:1px solid var(--stroke); background:#111115; border-radius:999px; font-size:12px; color:var(--muted)}
+    /* Partners */
+    .partner{display:flex; align-items:center; justify-content:space-between; gap:12px}
+    .partner a{color:var(--text); text-decoration:none; font-weight:600}
+    .partner .badge{font-size:12px; color:#161616; background:linear-gradient(135deg, var(--gold), #f0d77a); padding:6px 10px; border-radius:999px}
+    /* Why us */
+    .why{display:grid; grid-template-columns:1fr 1fr; gap:24px}
+    .tick{display:flex; gap:12px; align-items:flex-start}
+    .tick i{width:22px; height:22px; border-radius:6px; background:linear-gradient(135deg, var(--gold), #f0d77a); color:#121212; font-weight:900; display:grid; place-items:center}
+    /* Contact */
+    .contact-card{display:grid; grid-template-columns:1.3fr .7fr; gap:16px}
+    .form{display:grid; gap:10px}
+    .input{width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--stroke); background:#0f0f12; color:var(--text)}
+    .hint{font-size:12px; color:var(--muted)}
+    /* Footer */
+    footer{border-top:1px solid var(--stroke); padding:28px 0 56px; color:var(--muted)}
+    /* Floating CTA */
+    .float-cta{position:fixed; right:16px; bottom:16px; z-index:40}
+    .float-cta .btn{box-shadow:0 10px 24px rgba(212,175,55,.25)}
+    /* Mobile */
+    @media (max-width:960px){
+      .hero-grid{grid-template-columns:1fr;}
+      .grid.cols-3{grid-template-columns:1fr 1fr}
+      .grid.cols-4{grid-template-columns:1fr 1fr}
+      .why{grid-template-columns:1fr}
+      .contact-card{grid-template-columns:1fr}
+      .menu{display:none}
+    }
+    @media (max-width:560px){
+      .grid.cols-3, .grid.cols-4{grid-template-columns:1fr}
+      .hero h1{font-size:34px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <div class="brand-logo">VM</div>
+        <div class="brand-title">Veyro Medium</div>
+      </a>
+      <nav class="menu">
+        <a href="#services">Услуги</a>
+        <a href="#partners">Партнёры</a>
+        <a href="#about">О нас</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+      <div class="cta">
+        <a class="btn" href="https://t.me/veyromanager" target="_blank" rel="noopener">Написать менеджеру</a>
+        <a class="btn btn-gold" href="#contact">Заказать рекламу</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="tag">Элитное агентство в Telegram</span>
+          <h1>Запускаем рекламу в топ-каналах. Быстро. Прозрачно. По делу.</h1>
+          <p>Размещение в ТГК через нас — без лишних посредников и с доступом к сильным аудиториям. Менеджер по рекламе: <strong>@veyromanager</strong>.</p>
+          <div class="cta">
+            <a class="btn btn-gold" href="https://t.me/veyromanager" target="_blank" rel="noopener">Обсудить размещение</a>
+            <a class="btn" href="#services">Смотреть услуги</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="mock" aria-label="Превью кейсов / визуал Veyro Medium"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="container">
+        <h2>Услуги</h2>
+        <p class="lead">Ведём под ключ: от выбора площадок до креативов и отчётности.</p>
+        <div class="grid cols-3">
+          <div class="item">
+            <h3>Размещение рекламы в ТГК</h3>
+            <p>Подберём каналы под задачу и бюджет, согласуем размещение, проведём оплату и контроль выходов.</p>
+          </div>
+          <div class="item">
+            <h3>Креативы под Telegram</h3>
+            <p>Посты, визуалы, превью и короткие ролики — в едином стиле Veyro Medium.</p>
+          </div>
+          <div class="item">
+            <h3>Медиа-стратегия</h3>
+            <p>Построим воронку и календарь выходов, подготовим отчёт с метриками.</p>
+          </div>
+        </div>
+        <div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap">
+          <a class="btn btn-gold" href="https://docs.google.com/spreadsheets/d/1F5h7ULdF9K_GA47lDIFqqDLXhDEoNd-W/edit?usp=drive_link&ouid=108897537179642854252&rtpof=true&sd=true" target="_blank" rel="noopener">Прайс и условия</a>
+          <span class="hint">Кнопка открывает ваш Google Drive с прайсом и услугами.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section id="partners">
+      <div class="container">
+        <h2>Партнёры</h2>
+        <p class="lead">Размещаемся у сильных игроков Telegram. Ниже — часть доступных площадок.</p>
+        <div class="grid cols-3">
+          <div class="item partner">
+            <div>
+              <h3 style="margin:0 0 4px">FENILNAN</h3>
+              <a href="https://t.me/FenilNanDrolonov" target="_blank" rel="noopener">t.me/FenilNanDrolonov</a>
+            </div>
+            <span class="badge">ТГК</span>
+          </div>
+          <div class="item partner">
+            <div>
+              <h3 style="margin:0 0 4px">Аким Энантат 🧬</h3>
+              <a href="https://t.me/akimifbb" target="_blank" rel="noopener">t.me/akimifbb</a>
+            </div>
+            <span class="badge">ТГК</span>
+          </div>
+          <div class="item partner">
+            <div>
+              <h3 style="margin:0 0 4px">Наш канал</h3>
+              <a href="https://t.me/+_7WyDoqytww5NzMy" target="_blank" rel="noopener">t.me/+_7WyDoqytww5NzMy</a>
+            </div>
+            <span class="badge">официально</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT / WHY -->
+    <section id="about">
+      <div class="container">
+        <div class="why">
+          <div>
+            <h2>О Veyro Medium</h2>
+            <p class="lead">Мы — бутик-агентство, которое работает на результат и имидж клиента. Собираем кампании под задачу, держим связь 24/7 и отвечаем за выходы и цифры.</p>
+            <div class="grid">
+              <div class="item">
+                <span class="mini">Фокус</span>
+                <h3>Telegram как он есть</h3>
+                <p>Глубоко понимаем механику площадки, натив и поведение аудитории.
+                </p>
+              </div>
+              <div class="item">
+                <span class="mini">Стиль</span>
+                <h3>Премиальный креатив</h3>
+                <p>Единая визуальная система и тон, которые усиливают бренд и конверсию.</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h2>Почему мы</h2>
+            <div class="grid">
+              <div class="tick"><i>✓</i><div><strong>Без посредников</strong><br><span class="muted">Договоримся напрямую — быстрее запуск и прозрачные условия.</span></div></div>
+              <div class="tick"><i>✓</i><div><strong>Доступ к топ-аудиториям</strong><br><span class="muted">Сильные партнёры и проверенные ТГК.</span></div></div>
+              <div class="tick"><i>✓</i><div><strong>Контроль выходов</strong><br><span class="muted">Фиксируем тайминги и скрины, готовим отчёт.</span></div></div>
+              <div class="tick"><i>✓</i><div><strong>Качество Veyro</strong><br><span class="muted">Тёмно-золотой стиль, чёткие тексты, аккуратные макеты.</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <h2>Контакты</h2>
+        <p class="lead">Менеджер по рекламе: <strong>@veyromanager</strong>. Напишите нам и получите предложение под ваш бюджет.</p>
+        <div class="contact-card">
+          <div class="item">
+            <form class="form" onsubmit="return openTG(event)">
+              <input class="input" name="name" placeholder="Ваше имя" required>
+              <input class="input" name="brand" placeholder="Проект/бренд" required>
+              <input class="input" name="budget" placeholder="Бюджет (₽)" inputmode="numeric">
+              <textarea class="input" name="task" rows="4" placeholder="Коротко о задаче"></textarea>
+              <button class="btn btn-gold" type="submit">Написать в Telegram</button>
+              <div class="hint">Кнопка откроет диалог с @veyromanager в Telegram с автосообщением.</div>
+            </form>
+          </div>
+          <div class="item">
+            <h3 style="margin:0 0 8px">Дополнительно</h3>
+            <p class="muted">Официальный ТГ-канал: <a href="https://t.me/+_7WyDoqytww5NzMy" target="_blank" rel="noopener">перейти</a></p>
+            <p class="muted">Прайс и условия: <a href="https://docs.google.com/spreadsheets/d/1F5h7ULdF9K_GA47lDIFqqDLXhDEoNd-W/edit?usp=drive_link&ouid=108897537179642854252&rtpof=true&sd=true" target="_blank" rel="noopener">открыть</a></p>
+            <p class="muted">Почта: <a href="mailto:veyrobusines@mail.ru">veyrobusines@mail.ru</a></p>
+            <button class="btn" onclick="openPolicy()">Политика конфиденциальности</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="float-cta">
+    <a class="btn btn-gold" href="https://t.me/veyromanager" target="_blank" rel="noopener">Связаться в Telegram</a>
+  </div>
+
+  <footer>
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap">
+      <div style="display:flex; align-items:center; gap:10px">
+        <div class="brand-logo">VM</div>
+        <div>© <span id="y"></span> Veyro Medium. Все права защищены.</div>
+      </div>
+      <div>
+        <a class="btn" href="#top">Наверх</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Политика (микро-модал) -->
+  <dialog id="policy" style="border:none; border-radius:16px; padding:0; max-width:720px; color:#e7e7ea; background:#121216">
+    <div style="padding:18px 18px 0; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #222227">
+      <strong>Политика конфиденциальности</strong>
+      <button class="btn" onclick="document.getElementById('policy').close()">Закрыть</button>
+    </div>
+    <div style="padding:16px 18px 22px; font-size:14px; color:#b9bec7">
+      Мы собираем только данные, которые вы добровольно передаёте через форму. Данные используются для связи и подготовки коммерческого предложения. Нажимая кнопку, вы соглашаетесь с обработкой данных. По запросу данные удаляются.
+    </div>
+  </dialog>
+
+  <script>
+    // Год в футере
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Открыть TG с автосообщением
+    function openTG(e){
+      e.preventDefault();
+      const f = e.target;
+      const msg = `Здравствуйте! Хочу разместить рекламу.\nИмя: ${f.name.value}\nПроект: ${f.brand.value}\nБюджет: ${f.budget.value || '—'}\nЗадача: ${f.task.value || '—'}`;
+      const url = `https://t.me/veyromanager?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank', 'noopener');
+      return false;
+    }
+    function openPolicy(){
+      const d = document.getElementById('policy');
+      if(typeof d.showModal === 'function') d.showModal(); else alert('Политика: мы используем введённые вами данные только для связи.');
+    }
+
+    // Плавная прокрутка по якорям (поддержка старых браузеров)
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        if(id.length>1){ e.preventDefault(); document.querySelector(id).scrollIntoView({behavior:'smooth'}); }
+      });
+    });
+  </script>
+
+  <!--
+    ▸ Интеграции (по желанию):
+
+    Google Analytics 4:
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config','G-XXXXXXX');</script>
+
+    Meta Pixel:
+    <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)}; if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0;n.version='2.0'; n.queue=[]; t=b.createElement(e);t.async=!0; t.src=v; s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init','YOUR_PIXEL_ID'); fbq('track','PageView');</script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+  -->
+</body>
+</html>
